@@ -1,0 +1,48 @@
+#캐글 코리아 이유한 유튜브 참고 영상으로 코드 진행
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.style.use('seaborn')
+sns.set(font_scale=2.5)  #위의 두줄은 기본 적인 사항을 넣어 둔 것.
+
+import missingno as msno #데이터셋에 채워치지 않는 null데이터를 쉽게 보여주는 것
+
+#ignore warnings
+import warnings
+warnings.filterwarnings('ignore') #가끔 발생하는 경고들 무시
+
+%matplotlib inline
+
+df_train = pd.read_csv('../input/titanic/train.csv')
+df_test = pd.read_csv('../input/titanic/test.csv') #맥북은 input뒤에 titanic 붙여야함
+
+#df_train.head(10) 데이터 확인하기
+# df_train.describe() #간단한 통계값들이 들어있음.
+
+
+#df_train.columns
+
+for col in df_train.columns:
+    msg = 'column: {:>10}\t Percent of NaN value: {:.2f}%'.format(col, 100 * (df_train[col].isnull().sum()/df_train[col].shape[0]))
+    print(msg) #isnull()<< null이니??
+    
+    
+    #df_train[col].isnull() #null이 있니??
+#df_train[col].isnull().sum() #sum을 붙여서 전체 value에 총합을 준디. 2 = null데이터가 2개라는 뜻
+#df_train['Embarked'].shape 차원을 반환해준다
+# df_train[col].isnull().sum() / df_train[col].shape[0] #데이터로 나눠서 %를 확인하기 위함이다.
+
+
+#df_test.columns
+
+for col in df_test.columns:
+    msg = 'column: {:>10}\t Percent of NaN value: {:.2f}%'.format(col, 100 * (df_test[col].isnull().sum()/df_test[col].shape[0]))
+    print(msg) #isnull()<< null이니??
+    
+    
+#msno.matrix(df=df_train.iloc[:, :], figsize =(8, 8), color =(0.8, 0.5, 0.2)) #color(r,g,b)
+#matrix를 만들고 iloc는 indexing하는것! [ 처음부터:끝까지, 처음부터:끝까지]
+
+#msno.bar(df=df_train.iloc[:, :], figsize =(8, 8), color =(0.8, 0.5, 0.2)) #color(r,g,b)
