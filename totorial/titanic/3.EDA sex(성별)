@@ -1,0 +1,8 @@
+f , ax = plt.subplots(1, 2, figsize =(18, 8))
+df_train[['Sex', 'Survived']].groupby(['Sex'], as_index=True).mean().plot.bar(ax=ax[0])
+ax[0].set_title('Survived vs Sex')
+sns.countplot('Sex', hue = 'Survived', data=df_train, ax=ax[1])
+ax[1].set_title('Sex: Survived vs Dead')
+plt.show()
+
+sns.factorplot('Pclass', 'Survived', hue='Sex', data= df_train, size = 6, aspect = 1.5)
