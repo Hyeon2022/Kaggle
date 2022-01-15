@@ -1,0 +1,18 @@
+f, ax =plt.subplots(1, 2, figsize= (18, 8))
+
+df_train['Survived'].value_counts().plot.pie(explode = [0, 0.1], autopct ='%1.1f%%' ,ax= ax[0], shadow =True)
+ax[0].set_title('Pie plot - Survied')
+ax[0].set_ylabel('')
+sns.countplot('Survived', data =df_train, ax=ax[1])
+ax[1].set_title('Count plot - Survived')
+plt.show()
+
+
+y_position = 1.02
+f, ax = plt.subplots(1, 2, figsize = (18, 8))
+df_train['Pclass'].value_counts().plot.bar(color =['#CD7F32', '#FFDF00', '#D3D3D3'], ax= ax[0])
+ax[0].set_title('Number of passengers By Pclass', y = y_position)
+ax[0].set_ylabel('Count')
+sns.countplot('Pclass', hue = 'Survived', data = df_train, ax = ax[1])
+ax[1].set_title('Pclassl Survived vs Dead', y = y_position)
+plt.show()
