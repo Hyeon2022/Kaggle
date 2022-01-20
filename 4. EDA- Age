@@ -1,0 +1,4 @@
+print('제일 나이 많은 탑승객 : {:.1f} years'.format(df_train['Age'].max()))
+print('제일 어린 탑승객 : {:.1f} years'.format(df_train['Age'].min()))
+print('탑승객 평균 나이 : {:.1f} years'.format(df_train['Age'].mean()))
+
