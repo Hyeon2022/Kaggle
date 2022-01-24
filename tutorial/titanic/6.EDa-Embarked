@@ -13,3 +13,7 @@ ax[1, 1].set_title('(4) Embarked vs Pclass')
 
 plt.subplots_adjust(wspace =0.2, hspace =0.5)
 plt.show()
+
+자세한 설명은 아래 블로그에 업로드 했습니다.
+
+https://alex-kang.tistory.com/10
